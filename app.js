@@ -1,19 +1,11 @@
 // Hello ES6
 'use strict';
 
-// Initialize Config Map
-const config = new Map();
-
-// Database Information
-config.set( 'db_name', 'codyogden_cc4');
-
-config.set( 'port', process.env.PORT || 3000 );
-
 // File Path
 const filepath = require('path');
 
 // Config Module
-const port = config.get('port');
+const port = process.env.PORT || 3000;
 
 // Express Setup
 const express = require('express');
@@ -76,8 +68,6 @@ app.route( '/treats' )
 
 	}
 
-	console.log( "sql", sql );
-
 	// Query it
 	pool.query( sql, ( err, result ) => {
 
@@ -98,10 +88,13 @@ app.route( '/treats' )
 
 	console.log( 'POST /treats', req.body );
 
+	// Create SQL
 	var sql = "INSERT INTO treat ( name, description, pic ) VALUES ( $1, $2, $3 );";
 
+	// Set values array
 	var values = [ req.body.name, req.body.description, req.body.url ];
 
+	// Query it
 	pool.query( sql, values, ( err, result ) => {
 
 		if( err ) {
@@ -109,6 +102,7 @@ app.route( '/treats' )
 			return res.status(500).send( {error: err} );
 		}
 
+		// Send the default GET /treats
 		res.redirect( '/treats' );
 
 	} );
