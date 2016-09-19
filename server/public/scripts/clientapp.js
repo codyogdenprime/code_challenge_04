@@ -72,6 +72,10 @@ $(document).ready(function () {
     .done(function () {
       console.log('POST /treats sent ', treat);
       clearDom();
+      // Clear the form
+      $('#treatNameInput').val( '' );
+      $('#treatDescriptionInput').val( '' );
+      $('#treatUrlInput').val( '' );
       getTreats();
     });
   }

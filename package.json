@@ -7,5 +7,18 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "antoinette@primeacademy.io",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codyogdenprime/code_challenge_04.git"
+  },
+  "bugs": {
+    "url": "https://github.com/codyogdenprime/code_challenge_04/issues"
+  },
+  "homepage": "https://github.com/codyogdenprime/code_challenge_04#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "pg": "^6.1.0"
+  }
 }
